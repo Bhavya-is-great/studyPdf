@@ -25,8 +25,8 @@ export default function Navbar() {
 
     return (
         <header>
-            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" async />
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" async />
             <input onClick={handleChange} ref={checkRef} type="checkbox" name="nav-check" className="hidden" id="nav-check" />
             <label className="nav-label size-label" htmlFor="nav-check">
                 <ion-icon name="menu-outline"></ion-icon>
