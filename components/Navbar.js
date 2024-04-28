@@ -26,7 +26,7 @@ export default function Navbar() {
     return (
         <header>
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js" async />
-            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" async />
+            <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js" async />
             <input onClick={handleChange} ref={checkRef} type="checkbox" name="nav-check" className="hidden" id="nav-check" />
             <label className="nav-label size-label" htmlFor="nav-check">
                 <ion-icon name="menu-outline"></ion-icon>
@@ -40,9 +40,11 @@ export default function Navbar() {
                     <ion-icon name="close-outline"></ion-icon>
                 </label>
                 <li><Link href="/"><ion-icon name="home-outline"></ion-icon> Home</Link></li>
-                <li><Link href="/">About</Link></li>
-                <li><Link href="/">Services</Link></li>
-                <li><Link href="/">Contact</Link></li>
+                {/* <li><Link href="/">About</Link></li> */}
+                <li><Link href="/upload">upload</Link></li>
+                <li><Link href="/stuff">Stuff</Link></li>
+                <li><Link href="/view">View</Link></li>
+                <li><Link href="/login">login</Link></li>
             </ul>
         </header>
     );

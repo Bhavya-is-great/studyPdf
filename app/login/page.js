@@ -13,6 +13,7 @@ const LoginSignup = () => {
 
     const notificationRef = useRef(null);
     const component = useRef(null);
+    const remember = useRef(null);
 
     const [signupdata, setSignupData] = useState([]);
     const [logindata, setLoginData] = useState([]);
@@ -224,14 +225,32 @@ const LoginSignup = () => {
     }
 
     const HandleSignup = () => {
-        axios.post('http://localhost/php%20learnings/Projects/Studypdf/signup.php', { name: signupname, email: signupemail, password: signuppassword })
+
+        console.log("running")
+
+        if (signupemail == "" || signupname == '' || signuppassword == '') {
+            return sendNotification('warning', "Plz fill all the details!")
+        }
+
+        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/signup.php`, { name: signupname, email: signupemail, password: signuppassword })
             .then((res) => { setSignupData(res.data); HandleSignupData(); })
-            .catch(err => console.log((err)))
+            .catch(err => console.log((err)));
     }
 
     const HandleLogin = () => {
-        axios.post('http://localhost/php%20learnings/Projects/Studypdf/login.php', { email: loginemail, password: loginpassword })
-            .then((res) => { setLoginData(res.data); HandleLogindata(); })
+
+        if (loginemail == '' || loginpassword == "") {
+            return sendNotification('warning', 'Plz Fill all the details');
+        }
+
+        if (remember.current.checked) {
+            localStorage.setItem('user remember', 'true');
+        } else {
+            localStorage.setItem('user remember', 'false');
+        }
+
+        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/login.php`, { email: loginemail, password: loginpassword })
+            .then((res) => { console.log(res.data); setLoginData(res.data); HandleLogindata(); })
             .catch(err => console.log((err)));
     }
 
@@ -250,16 +269,21 @@ const LoginSignup = () => {
     // }, [signupdata]);
 
     const HandleSignupData = () => {
+        // console.log(signupdata)
         if (JSON.stringify(signupdata) != '[]') {
             if (signupdata == "Signed up SuccessFully") {
                 sendNotification('success', "Signed up SuccessFully!");
-            }
-            if (signupdata == "User Already Exist Login Plz") {
-                sendNotification('warning', "User Already Exist Login Plz!");
-            }
-            if (signupdata == "Failed") {
-                sendNotification('error', "Some Server issues Plz try agin after a minute!");
-            }
+                localStorage.setItem('userlog', 'true');
+                window.location.href = '/view';
+            } else
+                if (signupdata == "User Already Exist Login Plz") {
+                    sendNotification('warning', "User Already Exist Login Plz!");
+                } else
+                    if (signupdata == "Failed") {
+                        sendNotification('error', "Some Server issues Plz try agin after a minute!");
+                    } else {
+                        sendNotification('error', "Some Server issues Plz try agin after a minute!");
+                    }
         }
     }
 
@@ -275,8 +299,16 @@ const LoginSignup = () => {
 
     const HandleLogindata = () => {
         if (JSON.stringify(logindata) != '[]') {
-            if (loginpassword == logindata[0].password) {
+
+            if (logindata == "User doesn't exist Signup PLz") {
+                sendNotification('warning', "User doesn't exist Signup PLz!");
+            } else if (loginpassword == logindata[0].password) {
                 sendNotification('success', 'Login Successfull!');
+                window.location.href = '/view';
+                localStorage.setItem('userlog', 'true');
+                if (localStorage.getItem('user remember') == 'true') {
+                    localStorage.setItem('userdata', JSON.stringify(logindata));
+                }
             } else {
                 sendNotification('error', 'Wrong password enter Again!');
             }
@@ -333,6 +365,12 @@ const LoginSignup = () => {
                                         <input onChange={handleloginpassword} value={loginpassword} id="loginpassword" type="password" placeholder="Enter your password" required />
 
                                     </div>
+
+                                    <div className="mt-4">
+                                        <input type="checkbox" ref={remember} name="remember" id="Remember" />
+                                        <label htmlFor="Remember" className='remem p-2'>Remember me</label>
+                                    </div>
+
                                     {/* <div class="text"><a href="#">Forgot password?</a></div> */}
                                     <div className="button input-box">
                                         <input onClick={HandleLogin} type="button" value="Sumbit" />

@@ -16,6 +16,14 @@ export default function Home() {
     setText("Start Now")
   }
 
+  const navigate = () => {
+    // if (localStorage.getItem('userlog') == 'true') {
+    window.location.href = '/view';
+    // } else {
+    //   window.location.href = '/login';
+    // }
+  }
+
 
   return (
     <>
@@ -25,7 +33,7 @@ export default function Home() {
 
       <div className="flex fixed left-0 right-0 top-0 bottom-0 justify-center items-center main">
         <h1 className="text-7xl block"><img src="/logo2.jpg" className="w-72 inline-block" alt="Logo" />StudyPdf</h1>
-        <button ref={buttonRef} className='home-start-button'>
+        <button onClick={navigate} ref={buttonRef} className='home-start-button'>
           {text}
         </button>
       </div >
