@@ -3,7 +3,7 @@ import React from 'react';
 const Card = ({ details, buttonclick }) => {
 
     const handleclick = () => {
-        let url = `http://study-pdf.infinityfreeapp.com/${details.file}#toolbar=0`;
+        let url = `https://bhavyaop2.000webhostapp.com/${details.file}#toolbar=0`;
         buttonclick(url);
     }
 

@@ -21,7 +21,7 @@ const Stuff = () => {
 
         data.append('std', std);
 
-        axios.post(`http://study-pdf.infinityfreeapp.com/stuff.php`, data)
+        axios.post(`https://bhavyaop2.000webhostapp.com/stuff.php`, data)
             .then((res) => { setList(res.data) })
             .catch(err => console.log(err))
     }
