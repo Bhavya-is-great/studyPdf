@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import Card from './file';
+import Card from './Card';
 import Pdfviewer from './pdfviewer';
 
 
 const Allfiles = ({ list, change }) => {
-
-    const [pol, setPol] = useState(true);
-    const [fileurl, setfileUrl] = useState('');
 
     const GetUrl = (url) => {
         window.location.href = url;
