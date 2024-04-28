@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const card = ({ details, buttonclick }) => {
+const useCard = ({ details, buttonclick }) => {
 
     const [favourite, setFavorite] = useState(true);
 
@@ -108,4 +108,4 @@ const card = ({ details, buttonclick }) => {
     )
 }
 
-export default card
+export default useCard

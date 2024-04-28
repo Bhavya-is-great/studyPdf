@@ -9,9 +9,6 @@ const Allfiles = ({ list, change }) => {
     const [fileurl, setfileUrl] = useState('');
 
     const GetUrl = (url) => {
-        setfileUrl(url);
-        // setPol(false);
-        // console.log(url);
         window.location.href = url;
     }
 
