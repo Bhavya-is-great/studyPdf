@@ -1,7 +1,11 @@
 import React from 'react';
 
-const useCard = ({ details, buttonclick }) => {
+const Card = ({ details, buttonclick }) => {
 
+    const handleclick = () => {
+        let url = `${process.env.NEXT_PUBLIC_BASEURL}/${details.file}#toolbar=0`;
+        buttonclick(url);
+    }
 
     return (
         <div className="card">
@@ -13,17 +17,10 @@ const useCard = ({ details, buttonclick }) => {
                     Type : {details.type} <br />
                     Year : {details.year} <br />
                 </p>
-                {/* <div className='flex justify-center items-center'> */}
-                <button onClick={() => { let url = `${process.env.NEXT_PUBLIC_BASEURL}/${details.file}#toolbar=0`; buttonclick(url) }} className=' m-5 btn'>view</button>
-                {/* <button onClick={handleChange}> */}
-                {/* {
-                            favourite ? (<Outline></Outline>) : (<Heart></Heart>)
-                        } */}
-                {/* </button> */}
-                {/* </div> */}
+                <button onClick={handleclick} className=' m-5 btn'>view</button>
             </div>
         </div>
     )
 }
 
-export default useCard
+export default Card
