@@ -21,7 +21,7 @@ const Stuff = () => {
 
         data.append('std', std);
 
-        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/stuff.php`, data)
+        axios.post(`http://study-pdf.infinityfreeapp.com/stuff.php`, data)
             .then((res) => { setList(res.data) })
             .catch(err => console.log(err))
     }

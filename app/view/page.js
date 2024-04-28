@@ -19,7 +19,7 @@ const View = () => {
     const getdata = (data) => {
         setPdfList([]);
         settxt('');
-        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/givelist.php`, data)
+        axios.post(`http://study-pdf.infinityfreeapp.com/givelist.php`, data)
             .then((res) => {
                 if (Array.isArray(res.data)) {
                     setPdfList(res.data);

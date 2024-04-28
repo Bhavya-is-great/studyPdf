@@ -3,7 +3,7 @@ import React from 'react';
 const Card = ({ details, buttonclick }) => {
 
     const handleclick = () => {
-        let url = `${process.env.NEXT_PUBLIC_BASEURL}/${details.file}#toolbar=0`;
+        let url = `http://study-pdf.infinityfreeapp.com/${details.file}#toolbar=0`;
         buttonclick(url);
     }
 

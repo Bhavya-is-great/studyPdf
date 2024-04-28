@@ -295,7 +295,7 @@ const Form = () => {
         formData.append('type', type);
 
 
-        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/fileupload.php`, formData)
+        axios.post(`http://study-pdf.infinityfreeapp.com/fileupload.php`, formData)
             .then((response) => {
                 if (response.data == 'SuccessFully Uploaded the file') {
                     sendNotification('success', 'SuccessFully Uploaded the file');

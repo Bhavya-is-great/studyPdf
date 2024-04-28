@@ -232,7 +232,7 @@ const LoginSignup = () => {
             return sendNotification('warning', "Plz fill all the details!")
         }
 
-        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/signup.php`, { name: signupname, email: signupemail, password: signuppassword })
+        axios.post(`http://study-pdf.infinityfreeapp.com/signup.php`, { name: signupname, email: signupemail, password: signuppassword })
             .then((res) => { setSignupData(res.data); HandleSignupData(); })
             .catch(err => console.log((err)));
     }
@@ -249,7 +249,7 @@ const LoginSignup = () => {
             localStorage.setItem('user remember', 'false');
         }
 
-        axios.post(`${process.env.NEXT_PUBLIC_BASEURL}/login.php`, { email: loginemail, password: loginpassword })
+        axios.post(`http://study-pdf.infinityfreeapp.com/login.php`, { email: loginemail, password: loginpassword })
             .then((res) => { console.log(res.data); setLoginData(res.data); HandleLogindata(); })
             .catch(err => console.log((err)));
     }
