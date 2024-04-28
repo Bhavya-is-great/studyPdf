@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import Drop from '../../components/Drop';
 import axios from 'axios';
 
-const form = ({ getdata }) => {
+const Form = ({ getdata }) => {
 
     const standardlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     const [standard, setStandard] = useState('Standard');
@@ -266,4 +266,4 @@ const form = ({ getdata }) => {
     )
 }
 
-export default form
+export default Form
