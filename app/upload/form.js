@@ -285,7 +285,7 @@ const Form = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (filechoose == '' || type == '--None--' || text1.current.value == '' || text2.current.value == '' || text3.current.value == '') {
+        if (filechoose == '' || type == '--None--' || text1.current.value == '' || text2.current.value == '' || text3.current.value == '' || text4.current.value == '' || text5.current.value == '') {
             return sendNotification('warning', 'Plz fill all the details');
         }
 
