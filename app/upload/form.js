@@ -404,7 +404,7 @@ const Form = () => {
 
                     <div>
                         <div className="input-data my-6">
-                            <input ref={text5} type="number" id='pass' placeholder=' ' />
+                            <input ref={text5} type="text" id='pass' placeholder=' ' />
                             <div className="underline"></div>
                             <label htmlFor="pass">Password</label>
                         </div>
