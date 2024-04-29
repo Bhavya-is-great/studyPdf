@@ -5,20 +5,20 @@ import Form from './form';
 
 const Upload = () => {
 
-    useEffect(() => {
-        if (localStorage.getItem('userdata')) {
-            if (JSON.parse(localStorage.getItem('userdata'))[0].email == 'bdopcreator123@gmail.com') {
-                // return console.log(JSON.parse(localStorage.getItem('userdata')))
-                return
-            }
-            else {
-                window.location.href = '/view'
-            }
+    // useEffect(() => {
+    //     if (localStorage.getItem('userdata')) {
+    //         if (JSON.parse(localStorage.getItem('userdata'))[0].email == 'bdopcreator123@gmail.com') {
+    //             // return console.log(JSON.parse(localStorage.getItem('userdata')))
+    //             return
+    //         }
+    //         else {
+    //             window.location.href = '/view'
+    //         }
 
-        } else {
-            window.location.href = '/view'
-        }
-    })
+    //     } else {
+    //         window.location.href = '/view'
+    //     }
+    // }, [])
 
     // console.log(JSON.parse(localStorage.getItem('userdata')))
 

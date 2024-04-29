@@ -10,6 +10,7 @@ const Form = () => {
     const text2 = useRef(null);
     const text3 = useRef(null);
     const text4 = useRef(null);
+    const text5 = useRef(null);
 
     const select = useRef(null);
     const caret = useRef(null);
@@ -22,6 +23,8 @@ const Form = () => {
     const opt4 = useRef(null);
     const opt5 = useRef(null);
     const opt6 = useRef(null);
+    const opt7 = useRef(null);
+    const opt8 = useRef(null);
     const [standard, setStandard] = useState(1);
 
     const [colour, setcolour] = useState('');
@@ -226,6 +229,8 @@ const Form = () => {
         opt4.current.classList.remove('active');
         opt5.current.classList.remove('active');
         opt6.current.classList.remove('active');
+        opt7.current.classList.remove('active');
+        opt8.current.classList.remove('active');
 
         e.target.classList.add('active');
 
@@ -284,6 +289,10 @@ const Form = () => {
             return sendNotification('warning', 'Plz fill all the details');
         }
 
+        if (text5 != 'Bhavya4343@4343') {
+            return sendNotification('error', 'Incorrect password');
+        }
+
 
         const formData = new FormData();
         formData.append('pdf_File', fileInputRef.current.files[0]);
@@ -327,7 +336,7 @@ const Form = () => {
                     show && <Ele />
                 }
             </div>
-            <form onSubmit={handleSubmit} className='upload-form mt-[20rem] mb-24'>
+            <form onSubmit={handleSubmit} className='upload-form mt-[24rem] mb-24'>
 
                 <div className=' divv'>
 
@@ -393,6 +402,14 @@ const Form = () => {
                         </div>
                     </div>
 
+                    <div>
+                        <div className="input-data my-6">
+                            <input ref={text5} type="number" id='pass' placeholder=' ' />
+                            <div className="underline"></div>
+                            <label htmlFor="pass">Password</label>
+                        </div>
+                    </div>
+
                     <div className="dropdown">
                         <div ref={select} className="select" onClick={handleclick}>
                             <span ref={selected} className="selected"><button>{type}</button></span>
@@ -406,6 +423,8 @@ const Form = () => {
                             <li ref={opt4} onClick={HandleClick}><button>Final term</button></li>
                             <li ref={opt5} onClick={HandleClick}><button>Textbook</button></li>
                             <li ref={opt6} onClick={HandleClick}><button>Reference</button></li>
+                            <li ref={opt7} onClick={HandleClick}><button>Notes</button></li>
+                            <li ref={opt8} onClick={HandleClick}><button>Practice</button></li>
                         </ul>
                     </div>
 
