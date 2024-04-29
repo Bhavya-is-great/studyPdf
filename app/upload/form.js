@@ -289,7 +289,7 @@ const Form = () => {
             return sendNotification('warning', 'Plz fill all the details');
         }
 
-        if (text5 != 'Bhavya4343@4343') {
+        if (text5.current.value != 'Bhavya4343@4343') {
             return sendNotification('error', 'Incorrect password');
         }
 
