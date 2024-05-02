@@ -44,7 +44,7 @@ export default function Navbar() {
                 <li><Link href="/upload">upload</Link></li>
                 <li><Link href="/stuff">Stuff</Link></li>
                 <li><Link href="/view">View</Link></li>
-                <li><Link href="/login">login</Link></li>
+                {/* <li><Link href="/login">login</Link></li> */}
             </ul>
         </header>
     );
